@@ -1,11 +1,30 @@
 package com.example.ecommerceapp.API;
 
-public class RegistrationBody {
+import jakarta.validation.constraints.*;
 
+public class RegistrationBody {
+    @NotNull
+    @NotBlank
+    @Size(min = 3, max=32)
     private String username;
+
+    @NotNull
+    @NotBlank
+    @Email
     private String email;
+
+    @NotNull
+    @NotBlank
+    @Size(min = 8, max=20)
+    //@Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d).*$")
     private String password;
+
+    @NotNull
+    @NotBlank
     private String firstname;
+
+    @NotNull
+    @NotBlank
     private String lastname;
 
     public String getUsername() {
